@@ -51,6 +51,12 @@ function App() {
           shadow-lg text-black' style={{backgroundColor: '#F78764'}}>
             Coral
           </button>
+
+          <button onClick={() => setColor('#FFB30F')} 
+          className='outline-none rounded-xl px-5 py-1 
+          shadow-lg text-black' style={{backgroundColor: '#FFB30F'}}>
+            Yellow
+          </button>
         </div>
       </div>
     </div>
