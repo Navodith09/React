@@ -6,7 +6,6 @@ function App() {
   const [numAllowed, setNumAllowed] = useState(false)
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState('')
-  // const [clicked, setClicked] = useState(false)
 
   // creating a refernce of the password in order to manipulate it when copied.
   // useRef hook --> to take reference
@@ -27,10 +26,6 @@ function App() {
     setPassword(pass)
 
   }, [length, numAllowed, charAllowed, setPassword])
-
-  // const buttonClicked = () => {
-  //   setClicked('bg-blue-700')
-  // }
 
   const copyPasswordToClipboard = useCallback(() => {
     passwordReference.current?.select()
@@ -66,7 +61,9 @@ function App() {
           // buttonClicked();
           copyPasswordToClipboard();
         }} 
-        className={`outline-none bg-blue-500 text-black px-3 shrink-0`}>
+        className='outline-none bg-gradient-to-tr from-blue-700 to-blue-400 
+        text-black text-center uppercase px-3 shrink-0 shadow-blue-950 
+        transition-all hover:shadow-lg active:opacity-[0.85] disabled:opacity-50'>
           Copy  
         </button>
 
