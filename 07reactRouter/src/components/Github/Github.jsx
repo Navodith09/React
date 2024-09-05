@@ -4,8 +4,7 @@ import { useLoaderData } from 'react-router-dom'
 function Github() {
 
     const data = useLoaderData()
-    console.log("Data in component:", data); // Should log the data received from the loader
-    
+    // console.log("Data in component:", data); 
 
     // const [data, setData] = useState([])
 
@@ -27,10 +26,9 @@ function Github() {
                     <div className='p-6'>
                         <h1 className='text-black text-4xl'>Github Name: {data.login}</h1>
                         <p>Followers: {data.followers}</p>
-                        <p>Type: {data.type}</p>
-                        <p>Location: {data.location}</p>
+                        <p>{data.type}, {data.location}</p>
+                        <p>Repos: {data.public_repos}</p>
                         <p>Bio: {data.bio}</p>
-                        <p>Public Repos: {data.public_repos}</p>
                     </div>
                 </>
             ) : (
@@ -43,17 +41,17 @@ function Github() {
 export default Github
 
 export const githubInfoLoader = async () => {
-    console.log("Loader is executing"); // Should log to the console
+    // console.log("Loader is executing"); // Should log to the console
     try {
         const response = await fetch('https://api.github.com/users/Navodith09');
         if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log("Data received:", data); // Should log the received data
+        // console.log("Data received:", data); // Should log the received data
         return data;
     } catch (error) {
         console.error('Fetching data failed:', error);
-        return null; // Return null if an error occurs
+        return null;
     }
 };
